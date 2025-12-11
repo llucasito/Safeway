@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeWay - Transporte Escolar</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header id="navbar">
+    <div class="logo">SafeWay</div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+     </header>
+  <!-- Seção de Início -->
+ <section id="inicio" class="hero">
+   <canvas id="particleCanvas"></canvas>
+   <div class="hero-content">
+    <h1>Segurança e Conforto no Transporte Escolar</h1>
+    <p>Conectamos pais e escolas a motoristas confiáveis com tecnologia e responsabilidade.</p><a href="#sobre" class="btn">Saiba Mais</a>
+   </div>
+  </section>
+  <!-- Seção Sobre Nós -->
+  <section id="sobre" class="sobre">
+    <div class="sobre-text">
+      <h2>Sobre a SafeWay</h2>
+      <p>Somos uma empresa especializada em transporte escolar com foco em segurança, pontualidade e conforto. Nossa
+        frota é moderna, nossos motoristas são treinados e nossa tecnologia garante tranquilidade para pais e escolas.
+      </p>
+    </div>
+    <div class="sobre-img">
+      <img src="./IMG/mãe.jpeg"
+        alt="Mãe e filha sorrindo">
+    </div>
+  </section>
+  <!-- Seção de Serviços -->
+  <section id="servicos" class="servicos">
+    <h2>Nossos Serviços</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3273/3273365.png" alt="">
+        <h3>locais e pontos de Referencia</h3>
+        <p>veja os pontos de Referencia diretamente no site.</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/407/407815.png" alt="">
+        <h3>Comunicação direta</h3>
+        <p>rotas, horarios, pontos de Referencia tudo no mesmo local.</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/5351/5351256.png" alt="">
+        <h3>Pontualidade garantida</h3>
+        <p>não se atrase, veja os horarios e as rotas.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Seção de Contato -->
+  <section id="contato" class="contato">
+    <h2>Fale Conosco</h2>
+    <p>Entre em contato e descubra como podemos facilitar o transporte escolar com segurança e inovação.</p>
+    <form>
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea placeholder="Sua mensagem" required></textarea>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Seção de Horários de Ônibus -->
+  <section id="horarios" class="horarios">
+    <h2>Horários de Ônibus</h2>
+    <!-- Campo de pesquisa -->
+    <div id="Pesquisa" class="tabcontent">
+      <form onsubmit="performSearch(event)">
+        <input type="text" id="pesquisa" placeholder="Digite nome do bairro" onkeyup="filtrarTabela()">
+
+        <button type="submit">Pesquisar</button>
+
+
+      </form>
+    </div><br>
+
+    <table id="tabela" border="1" style="width: 100%; border-collapse: collapse;">
+      <tr>
+        <th>Rota</th>
+        <th>Referencia</th>
+        <th>Horário</th>
+        <th>Destino</th>
+      </tr>
+
+      <tr>
+        <td>Lidia queiroz</td>
+        <td><a href="https://www.google.com/maps/place/Estadio+Municipal+O+Carneir%C3%A3o./@-7.1388065,-35.1053326,15z/data=!4m10!1m2!2m1!1scarneirao!3m6!1s0x7acf0ff2e6e4007:0xbfa3e7205eba486!8m2!3d-7.1388065!4d-35.0862782!15sCgljYXJuZWlyYW-SAQdzdGFkaXVt4AEA!16s%2Fg%2F11fxvk8yvr?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D">Carneirão</a>
+        </td>
+        <td>06:40 - 16:40</td>
+        <td>patio de eventos</td>
+      </tr>
+      <tr>
+        <td>Alto josé leal</td>
+        <td><a href="https://www.google.com/maps/place/Restaurante+Feijoada+da+Vov%C3%B3/@-8.1154127,-35.3087248,17z/data=!3m1!4b1!4m6!3m5!1s0x7aa5357c6983aed:0x1febdfce0f6bb88c!8m2!3d-8.115418!4d-35.3038539!16s%2Fg%2F11bc73q0xv?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D">Feijoada da vovó</a>
+        </td>
+        <td>09:00 - 19:00</td>
+        <td>patio de eventos</td>
+      </tr>
+      <tr>
+        <td>Jardim ipiranga</td>
+        <td><a href="https://www.google.com/maps/@-8.130266,-35.2966338,3a,81.3y,310.64h,91.86t/data=!3m7!1e1!3m5!1sU6qMJyZ9GtfrqlWmFRnggQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.8600526130293957%26panoid%3DU6qMJyZ9GtfrqlWmFRnggQ%26yaw%3D310.64420505356935!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D">Romão</a></td>
+        <td>09:00 - 19:00</td>
+        <td>patio de eventos</td>
+      </tr>
+      <tr>
+        <td>Mario bezerra</td>
+        <td><a href="https://maps.app.goo.gl/8mfmnvkrTGJRsUYx8">Mercado ipiranga</a>
+        </td>
+        <td>06:10 - 16:40</td>
+        <td>patio de eventos</td>
+      </tr>
+      <tr>
+        <td>loteamento de baú</td>
+        <td><a href="https://www.google.com/maps/place/Deildo+Constru%C3%A7%C3%B5es/@-8.1078459,-35.3093444,17z/data=!3m1!4b1!4m6!3m5!1s0x7aa5354c9d3058b:0x5299ca5bdbbf7666!8m2!3d-8.1078512!4d-35.3067695!16s%2Fg%2F11hb8f68gr?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D">Deildo construções</a></td>
+        <td>06:10 - 16:40</td>
+        <td>patio de eventos</td>
+      </tr> 
+      <tr>
+        <td>Cajá</td>
+        <td><a href="https://www.google.com/maps/place/Farm%C3%A1cia+Cabral+Ltda/@-8.1090719,-35.2886133,17z/data=!3m1!4b1!4m6!3m5!1s0x7aa54ad6fe6d79b:0x7b02149048910731!8m2!3d-8.1090772!4d-35.2860384!16s%2Fg%2F1vd71jkp?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D">Farmacia Cabral</a>
+        </td>
+        <td>06:10 - 16:40</td>
+        <td>patio de eventos</td>
+      </tr>
+      <tr>
+        <td>Amparo</td>
+        <td><a href="https://www.google.com/maps/place/Estadio+Municipal+O+Carneir%C3%A3o./@-7.1388065,-35.1053326,15z/data=!4m10!1m2!2m1!1scarneirao!3m6!1s0x7acf0ff2e6e4007:0xbfa3e7205eba486!8m2!3d-7.1388065!4d-35.0862782!15sCgljYXJuZWlyYW-SAQdzdGFkaXVt4AEA!16s%2Fg%2F11fxvk8yvr?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D">Paroquia Amparo</a></td>
+        <td>06:10 - 16:40</td>
+        <td>patio de eventos</td>
+      </tr>
+      <td>Jardim são pedro</td>
+        <td><a href="https://www.google.com/maps/place/Restaurante+Z%C3%A9+Da+Mula/@-8.1105639,-35.3106068,17z/data=!3m1!4b1!4m6!3m5!1s0x7aa535474feba75:0x51381e514a245499!8m2!3d-8.1105692!4d-35.3080319!16s%2Fg%2F11c5qswy6x?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D">Zé da mula</a></td>
+        <td>06:10 - 16:40</td>
+        <td>patio de eventos</td>
+      </tr>
+        <td>Bela vista</td>
+        <td><a href="https://www.google.com/maps/place/Pra%C3%A7a+da+Bela+Vista+-+Vit%C3%B3ria+de+Santo+Ant%C3%A3o,+PE,+55614-525/@-8.1086587,-35.298777,3a,75y,90t/data=!3m8!1e5!3m6!1sCIHM0ogKEICAgIDco4K2oAE!2e10!3e10!6shttps:%2F%2Flh3.googleusercontent.com%2Fgps-cs-s%2FAG0ilSxPlPtlnRgKTVdQhXHMHU7GBs4qRpdhjMwaBOHnNy4YiugD5L1Ow02Q7RSFTEOKK_470nyG5Vusq5vBGEUCvVid5lVIMPL1sfj_PRla-TG-VrTiAEEnYqpQ6RbBqCcb142sP92_oQ%3Dw151-h86-k-no!7i848!8i480!4m7!3m6!1s0x7aa54ab39bcaa6b:0x32d2f63c33a93618!8m2!3d-8.1086587!4d-35.298777!10e5!16s%2Fg%2F11c43x8vz3?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D">Praça bela vista</a></td>
+        <td>06:10 - 17:00</td>
+        <td>patio de eventos</td>
+      </tr>
+        </tr>
+        <td>Iraque</td>
+        <td><a href="https://www.google.com/maps/place/Arena+Edson/@-8.1040178,-35.2723247,3a,90y,335.88h,90.54t/data=!3m7!1e1!3m5!1sWsIQUTodgE8Lbtb6Yx1JtA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.5441420151799861%26panoid%3DWsIQUTodgE8Lbtb6Yx1JtA%26yaw%3D335.8839402638288!7i16384!8i8192!4m9!3m8!1s0x7ababa1219fe09b:0x93645fc5bc50c5da!8m2!3d-8.1088081!4d-35.2733585!10e5!14m1!1BCgIgARICCAI!16s%2Fg%2F11vf3bkf6h?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D">Praça do Iraque</a></td>
+        <td>06:10 - 16:40</td>
+        <td>patio de eventos</td>
+      </tr>
+      <td>Juçaral</td>
+        <td><a href="https://www.google.com/maps/place/R.+Estr.+Nova,+15+-+Ju%C3%A7aral,+Cabo+de+Santo+Agostinho+-+PE,+54570-000/@-8.2147688,-35.2350988,17z/data=!3m1!4b1!4m6!3m5!1s0x7aa563a39c042a3:0xbdd5d3c3f544e9ff!8m2!3d-8.2147741!4d-35.2302279!16s%2Fg%2F11x2m60hfr?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D">Juçaral</a></td>
+        <td>06:00 - 17:00</td>
+        <td>patio de eventos</td>
+      </tr>
+    </table>
+  </section>
+  <footer>
+    <p>© 2025 SafeWay Transporte Escolar — Todos os direitos reservados</p>
+  </footer>
+  </body>
+
+  <script>
+    // Efeito de estrelas cadentes em diagonal
+    const hero = document.querySelector('.hero');
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Definir tamanho do canvas
+    function resizeCanvas() {
+      canvas.width = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+    }
+    resizeCanvas();
+
+    const stars = [];
+    const starCount = 40;
+
+    class ShootingStar {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        // Começar do canto superior direito
+        this.x = Math.random() * canvas.width + canvas.width * 0.3;
+        this.y = -50;
+        this.length = Math.random() * 80 + 40; // Comprimento do rastro
+        this.speed = Math.random() * 4 + 3;
+        this.size = Math.random() * 1.5 + 1;
+        this.opacity = Math.random() * 0.5 + 0.5;
+        this.angle = Math.PI / 4; // 45 graus para diagonal
+      }
+
+      update() {
+        // Movimento diagonal (para baixo e para esquerda)
+        this.x -= Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+
+        // Resetar quando sair da tela
+        if (this.y > canvas.height + 50 || this.x < -50) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        ctx.save();
+        
+        // Criar gradiente para o rastro da estrela cadente
+        const gradient = ctx.createLinearGradient(
+          this.x, 
+          this.y, 
+          this.x + Math.cos(this.angle) * this.length, 
+          this.y - Math.sin(this.angle) * this.length
+        );
+        
+        gradient.addColorStop(0, `rgba(248, 200, 0, ${this.opacity})`);
+        gradient.addColorStop(0.5, `rgba(255, 223, 50, ${this.opacity * 0.6})`);
+        gradient.addColorStop(1, 'rgba(248, 200, 0, 0)');
+
+        // Desenhar linha da estrela cadente
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = this.size;
+        ctx.lineCap = 'round';
+        
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(
+          this.x + Math.cos(this.angle) * this.length,
+          this.y - Math.sin(this.angle) * this.length
+        );
+        ctx.stroke();
+
+        // Brilho na ponta da estrela
+        const glowGradient = ctx.createRadialGradient(
+          this.x, this.y, 0,
+          this.x, this.y, this.size * 4
+        );
+        glowGradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
+        glowGradient.addColorStop(0.3, `rgba(248, 200, 0, ${this.opacity * 0.8})`);
+        glowGradient.addColorStop(1, 'rgba(248, 200, 0, 0)');
+
+        ctx.fillStyle = glowGradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
+      }
+    }
+
+    // Criar estrelas cadentes
+    for (let i = 0; i < starCount; i++) {
+      const star = new ShootingStar();
+      // Distribuir inicialmente por toda a tela
+      star.y = Math.random() * canvas.height;
+      stars.push(star);
+    }
+
+    // Animação
+    function animate() {
+      // Limpar com leve transparência para criar efeito de rastro suave
+      ctx.fillStyle = 'rgba(13, 13, 13, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      stars.forEach(star => {
+        star.update();
+        star.draw();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Redimensionar canvas ao mudar tamanho da janela
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ab55121c15b7b53',t:'MTc2NTI5MTg0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
+  </script>
+
+</html>
